@@ -1,0 +1,41 @@
+//写1个程序，随机产生1个2位数的加法运算，让用户输入这个运算的结果，然后判断这个结果是否正确，来10次
+//每个人默认是10分，
+//产生10个加法运算，操作数的范围在0-100之间。
+//每产生1个加法运算，就会让用户输入结果，判断是否正确，
+//当回答正确的时候就会给用户加1分，错误的时候减1分
+//当10道题回答完毕之后，就会显示用户的分数
+
+//循环次数：10次
+//循环体：随机产生1个2位数的加法运算，让用户输入这个结果，判断是否正确
+
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+    int i = 0;
+    int fenShu = 10;
+    while(i < 10)
+    {
+        int jieGuo = 0;
+        int num1 = arc4random_uniform(101);
+        int num2 = arc4random_uniform(101);
+        
+        printf("%d + %d = ",num1,num2);
+        scanf("%d",&jieGuo);
+        
+        if(num1 + num2 == jieGuo)
+        {
+            fenShu += 1;
+        }
+        else
+        {
+            fenShu -=1;
+        }
+        
+        i++;
+    }
+    
+    printf("你的分数为：%d\n",fenShu);
+    
+    return 0;
+}
